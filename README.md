@@ -1,1 +1,1 @@
-# burger-app
+# burger
