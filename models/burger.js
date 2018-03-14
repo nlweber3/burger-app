@@ -1,7 +1,26 @@
-var orm = require('../config/orm.js');
+var Sequelize = require("sequelize");
+
+var sequelize = require("../config/connection.js");
 
 
-var Sequelize = require('sequelize');
-model.findALL({
-	attributes: ['burgers']
+var burger = sequelize.define("burger", {
+	burger_name: {
+		type: DataTypes.STRING
+	},
+	devoured: {
+		type: DataTypes.BOOLEAN
+	}
+}, {
+	timestamps: false
 });
+
+burger.sync();
+
+app.get("/api/all", function(req, res) {
+	burger.findAll[{}].then(function(results) {
+		res.json(results);
+	});
+});
+
+
+module.exports = burger;
