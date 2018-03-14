@@ -19,5 +19,6 @@ connection.connect(function(err) {
 	console.log("connected as id: " + connection.threadId);
 });
 
+app.use('/', routes);
 
 module.exports = connection;

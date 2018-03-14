@@ -4,14 +4,17 @@ var methodOverride = require('method-override');
 var app = express();
 var PORT = process.env.PORT || 3000;
 var bodyParser = require('body-parser');
+var path = require('path');
+var exphbs = require('express-handlebars');
 
 
 app.use(methodOverride('X-HTTP-Method-Override'))
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(bodyParser.text());
 
+
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
 
 
 
